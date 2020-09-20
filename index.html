@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+  <html lang="en">
+  <meta http-equiv="Content-Type" content="text/html; charset=gdk" />
+  <head> 
+    <title>生日查询-青藤2018级2班</title> 
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+  </head> 
+  <body> 
+  <h1>生日查询-青藤2018级2班</h1> 
+  <p>如果有错误，请email <u><b>tel13958391458@qq.com</b></u> 或者直接找我！如果你不希望自己生日出现在这里，同样找我！</p>
+  <div style="width:100%; height:100px">
+    <p>输入需要查询的姓名（或学号）：<input id="key" type="text"/><input type="button" value="搜索" onclick="search()"/></p>
+    <p>结果：<input id="result" type="text"/></p>
+  </div>
+  
+ <script>
+ 	function solve(key){
+		var names=["陈晋衍","陈卓义","郭家涵","胡喆文","黄子宁","李坚蔚","励欣哲","梁启睿","钱倍正","裘昊","王钰臻","吴晔晗","辛哲","徐铭泽","徐睿宁","许文博","杨洋","叶旭焘","虞溢","张博文","张乐轩","竺勤睿","陈安琪","陈若茗","陈琢羽","葛彦华","李佩璁","聂钰宸","史贝妮","童子萱","王一雯","王梓乐","吴若涵","徐晨涵","徐啸","徐忻蓉","徐一菡","叶子莹","于航嘉",/*"朱辰萱",*/"王浩轩"];
+		var birthdays=["2005.09.29","2006.08.17","2006.03.17","2006.07.02","2006.03.16","2005.12.16","2006.04.23","2006.04.20","2006.07.18","2006.03.13","2005.12.08","2006.10.21","2005.12.04","2006.06.14","2006.05.10","2006.03.21","2006.01.22","2006.06.20","2005.10.10","2006.03.27","2005.12.18","2006.04.07","2006.05.10","2006.03.21","2005.10.26","2005.09.04","2006.05.10","2006.03.31","2006.01.28","2006.03.03","2005.10.29","2006.04.25","2006.07.04","2006.06.02","2006.08.13","2006.06.03","2006.04.11","2006.04.07","2005.09.30",/*"2006.05.03",*/"2006.04.20"];
+		
+		
+		var res = document.getElementById("result");
+		res.value="";
+		
+		if(/^\d+$/.test(key)){
+			var number;
+			number=parseInt(key);
+			if(number===41){
+				res.value=birthdays[39];
+			}
+			else if(number===40){
+				res.value="没有这个人";
+			}
+			else if(0<number && number<40){
+				res.value=birthdays[number-1];
+			}
+			else {
+				res.value="没有这个人";
+			}
+		}
+		
+		else {
+			var pos=names.indexOf(key);
+			if(pos===-1){
+				res.value="没有这个人";
+			}
+			else {
+				res.value=birthdays[pos];
+			}
+		}
+		
+	}
+    function search(){
+        var key = document.getElementById("key").value;
+        if($.trim(key) != null && $.trim(key) != ''){
+            solve(key);
+        }
+    }
+ </script>
+ 
+ 
+ </body> 
+ </html>
