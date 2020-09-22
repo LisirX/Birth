@@ -3,21 +3,105 @@
   <head> 
     <title>生日查询-青藤2018级2班</title> 
   </head> 
+  <style type ="text/css" >    
+	body{    
+		font: normal 100% 'Arial','Helvetica','Verdana',sans-serif;    
+		color: #333;    
+	}    
+	p {    
+		padding: 12px 0;    
+		margin: 0;    
+		font-size: .8em;    
+		line-height: 1.5;    
+	}    
+	form {    
+		margin: 0;    
+	}
+	#search_box {    
+		width: 201px;    
+		height: 31px;    
+		/*url(http: //files.jb51.net/demoimg/200912/bg_search_box.gif);*/
+	}    
+	#search_box #s {    
+		float: left;    
+		padding: 0;    
+		margin: 6px 0 0 6px;    
+		border: 0;    
+		width: 159px;    
+		background: none;    
+		font-size: .8em;    
+	}    
+	#search_box #go {    
+		float: right;    
+		margin: 3px 4px 0 0;    
+	}    
+</style>    
   <body> 
-  <h1>生日查询-青藤2018级2班</h1> 
-  <p>如果有错误，请email <u><b>tel13958391458@qq.com</b></u> 或者直接找我！如果你不希望自己生日出现在这里，同样找我！</p>
-  <div style="width:100%; height:100px">
-    <p>输入需要查询的姓名（或学号）：<input id="key" type="text"/><input type="button" value="搜索" onclick="search()"/></p>
-    <p>结果：<input id="result" type="text"/></p>
+  <div>
+      <h1 align="center">生日查询-青藤2018级2班</h1> 
+      
+      <script language=JavaScript>
+	  
+	  var names=["陈晋衍","陈卓义","郭家涵","胡喆文","黄子宁","李坚蔚","励欣哲","梁启睿","钱倍正","裘昊","王钰臻","吴晔晗","辛哲","徐铭泽","徐睿宁","许文博","杨洋","叶旭焘","虞溢","张博文","张乐轩","竺勤睿","陈安琪","陈若茗","陈琢羽","葛彦华","李佩璁","聂钰宸","史贝妮","童子萱","王一雯","王梓乐","吴若涵","徐晨涵","徐啸","徐忻蓉","徐一菡","叶子莹","于航嘉",/*"朱辰萱",*/"王浩轩"];
+		var birthdays=["2005.09.29","2006.08.17","2006.03.17","2006.07.02","2006.03.16","2005.12.16","2006.04.23","2006.04.20","2006.07.18","2006.03.13","2005.12.08","2006.10.21","2005.12.04","2006.06.14","2006.05.10","2006.03.21","2006.01.22","2006.06.20","2005.10.10","2006.03.27","2005.12.18","2006.04.07","2006.05.10","2006.03.21","2005.10.26","2005.09.04","2006.05.10","2006.03.31","2006.01.28","2006.03.03","2005.10.29","2006.04.25","2006.07.04","2006.06.02","2006.08.13","2006.06.03","2006.04.11","2006.04.07","2005.09.30",/*"2006.05.03",*/"2006.04.20"];
+	  
+        var today=new Date();
+		
+        function initArray(){
+			this.length=initArray.arguments.length
+			for(var i=0;i<this.length;i++)
+				this[i+1]=initArray.arguments[i] 
+		}
+        var d=new initArray(
+			"星期日",
+			"星期一",
+			"星期二",
+			"星期三",
+			"星期四",
+			"星期五",
+			"星期六");
+        document.write(
+			"<p align=\"center\"> 今天的时间：",
+			today.getFullYear(),"年",
+			today.getMonth()+1,"月",
+			today.getDate(),"日",
+			d[today.getDay()+1],
+			"</p><p align=\"center\">近期生日同学：</p>" 
+		);
+		var dateTime;
+		for(var s=0;s<40;s++){
+			for(var t=1;t<=7;t++){
+				dateTime=new Date(today);
+				dateTime=dateTime.setDate(dateTime.getDate()+t);
+ 				dateTime=new Date(dateTime);
+				var fostr=((dateTime.getMonth()+1)<(10)?("0"+(dateTime.getMonth()+1)):(dateTime.getMonth()+1))+"."+(dateTime.getDate()<(10)?("0"+dateTime.getDate()):(dateTime.getDate()));
+				var stustr=birthdays[s].substring(5,10);
+				
+				//console.log(dateTime.getDate());
+				
+				if(fostr==stustr){
+					document.write("<p align=\"center\">"+names[s]+"的生日日期是"+fostr+"</p>");
+					break;
+				}
+			}
+		}
+		
+      </script>
+      
+      <p align="center">如果有错误，请email <u><b>tel13958391458@qq.com</b></u> 或者直接找我！<br>如果你不希望自己生日出现在这里，同样找我！</p>
+   </div>
+  <div style="width:100%; height:100px" align="center">
+    <p>输入需要查询的姓名（或学号）：</p><input id="s" type="text"/><input type="button" value="搜索" onclick="search()"/>
+    <p>结果：</p><input id="result" type="text"/>
   </div>
   
  <script>
- 	function solve(key){
+ 	function solve(key, result){
 		var names=["陈晋衍","陈卓义","郭家涵","胡喆文","黄子宁","李坚蔚","励欣哲","梁启睿","钱倍正","裘昊","王钰臻","吴晔晗","辛哲","徐铭泽","徐睿宁","许文博","杨洋","叶旭焘","虞溢","张博文","张乐轩","竺勤睿","陈安琪","陈若茗","陈琢羽","葛彦华","李佩璁","聂钰宸","史贝妮","童子萱","王一雯","王梓乐","吴若涵","徐晨涵","徐啸","徐忻蓉","徐一菡","叶子莹","于航嘉",/*"朱辰萱",*/"王浩轩"];
 		var birthdays=["2005.09.29","2006.08.17","2006.03.17","2006.07.02","2006.03.16","2005.12.16","2006.04.23","2006.04.20","2006.07.18","2006.03.13","2005.12.08","2006.10.21","2005.12.04","2006.06.14","2006.05.10","2006.03.21","2006.01.22","2006.06.20","2005.10.10","2006.03.27","2005.12.18","2006.04.07","2006.05.10","2006.03.21","2005.10.26","2005.09.04","2006.05.10","2006.03.31","2006.01.28","2006.03.03","2005.10.29","2006.04.25","2006.07.04","2006.06.02","2006.08.13","2006.06.03","2006.04.11","2006.04.07","2005.09.30",/*"2006.05.03",*/"2006.04.20"];
 		
 		
-		var res = document.getElementById("result");
+		var res = document.getElementById(result);
 		res.value="";
 		
 		if(/^\d+$/.test(key)){
@@ -49,8 +133,8 @@
 		
 	}
     function search(){
-        var key = document.getElementById("key").value;
-        solve(key);
+        var key = document.getElementById("s").value;
+        solve(key, "result");
     }
  </script>
  
