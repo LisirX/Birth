@@ -6,7 +6,8 @@
   <style type ="text/css" >    
 	body{    
 		font: normal 100% 'Arial','Helvetica','Verdana',sans-serif;    
-		color: #333;    
+		color: #333;
+		background:#92F5F5;
 	}    
 	p {    
 		padding: 12px 0;    
@@ -37,7 +38,7 @@
 	}    
 </style>    
   <body> 
-  <div>
+  <div style="background:rgba(102,255,0,0.2)" w>
       <h1 align="center">生日查询-青藤2018级2班</h1> 
       
       <script language=JavaScript>
@@ -70,7 +71,7 @@
 		);
 		var dateTime;
 		for(var s=0;s<40;s++){
-			for(var t=1;t<=7;t++){
+			for(var t=-7;t<=7;t++){
 				dateTime=new Date(today);
 				dateTime=dateTime.setDate(dateTime.getDate()+t);
  				dateTime=new Date(dateTime);
